@@ -18,7 +18,7 @@ function Dashboard() {
     const token = sessionStorage.getItem("token");
 
     try {
-      const response = await axios.get("http://localhost:2222/user", {
+      const response = await axios.get("http://localhost:2222/api/user", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -48,7 +48,7 @@ function Dashboard() {
   return (
     <main className="dashboard">
       <h1>My Profile</h1>
-      <p>Welcome back, {data.user_name}</p>
+      <p className="dashboard__title">Welcome back, {data.username}</p>
 
       <h2>Your Videos</h2>
 

@@ -21,7 +21,7 @@ function Login() {
       );
 
       sessionStorage.setItem("token", response.data.token);
-      navigate("/user");
+      navigate("/");
     } catch (error) {
       console.error(error);
       setError(error.response.data);
