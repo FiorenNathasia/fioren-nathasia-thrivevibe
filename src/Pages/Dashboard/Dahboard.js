@@ -1,13 +1,34 @@
 import "./Dashboard.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import UserVideoList from "../../components/UserVideoList/UserVideoList";
+import NewVideoModal from "../../components/NewVideoModal/NewVideoModal";
 
 function Dashboard() {
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [videoList, setVideoList] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const { videoId } = useParams();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+
+  const fetchVideoList = async () => {
+    const token = sessionStorage.getItem("token");
+    try {
+      const { data } = await axios.get("http://localhost:2222/api/video", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      setVideoList(data);
+    } catch (error) {
+      setIsError(true);
+      console.error(error);
+    }
+  };
 
   const logout = () => {
     sessionStorage.removeItem("token");
@@ -37,6 +58,11 @@ function Dashboard() {
     login();
   }, []);
 
+  useEffect(() => {
+    // Fetch video list when the component mounts
+    fetchVideoList();
+  }, []);
+
   if (failedAuth) {
     return <main className="dashboard">You must log in to see this page.</main>;
   }
@@ -48,11 +74,28 @@ function Dashboard() {
   return (
     <main className="dashboard">
       <h1>My Profile</h1>
-      <p className="dashboard__title">Welcome back, {data.username}</p>
-
+      <p className="dashboard__title">
+        Welcome back, {data.username} <button onClick={logout}>Log out</button>{" "}
+      </p>
       <h2>Your Videos</h2>
 
-      <button onClick={logout}>Log out</button>
+      {videoList && <UserVideoList videos={videoList} />}
+
+      <button
+        alt="icon"
+        className="voucher"
+        onClick={() => {
+          setOpenModal(true);
+        }}
+      >
+        Add New Feature
+      </button>
+      {openModal && (
+        <NewVideoModal
+          closeModal={setOpenModal}
+          fetchVideoList={fetchVideoList}
+        />
+      )}
     </main>
   );
 }
