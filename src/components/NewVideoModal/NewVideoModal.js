@@ -1,4 +1,3 @@
-// NewVideoModal.js
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -44,7 +43,6 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
       console.error(error);
     }
 
-    // Reset the form
     setFormData({
       url: "",
       prompt: "",
@@ -52,7 +50,6 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
 
     closeModal();
     fetchVideoList();
-    // Navigate to the desired route
     navigate("/");
   };
   return (

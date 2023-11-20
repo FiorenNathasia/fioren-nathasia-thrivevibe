@@ -1,7 +1,4 @@
 import "./UserVideoList.scss";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import UserVideoCard from "../UserVideoCard/UserVideoCard";
 
 export default function UserVideoList({ videos }) {

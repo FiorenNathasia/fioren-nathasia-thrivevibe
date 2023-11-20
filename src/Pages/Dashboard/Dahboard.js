@@ -59,7 +59,6 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-    // Fetch video list when the component mounts
     fetchVideoList();
   }, []);
 

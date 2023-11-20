@@ -3,7 +3,6 @@ import React from "react";
 import YouTube from "react-youtube";
 
 export default function UserVideoCard({ id, url, prompt }) {
-  // Extract video ID from the YouTube URL
   const videoId = url.split("/").pop();
   const opts = {
     width: "75%",
