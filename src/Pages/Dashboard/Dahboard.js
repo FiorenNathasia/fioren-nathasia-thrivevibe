@@ -12,7 +12,7 @@ function Dashboard() {
   const [openModal, setOpenModal] = useState(false);
   const [isError, setIsError] = useState(false);
   const { videoId } = useParams();
-  const [data, setData] = useState(null);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const fetchVideoList = async () => {
@@ -35,31 +35,28 @@ function Dashboard() {
     navigate("/login");
   };
 
-  const login = async () => {
+  const fetchUsername = async () => {
     const token = sessionStorage.getItem("token");
-
     try {
-      const response = await axios.get("http://localhost:2222/api/user", {
+      const { data } = await axios.get("http://localhost:2222/api/user", {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
-
-      setData(response.data);
+      setUser(data);
     } catch (error) {
-      setFailedAuth(true);
-      console.error(error);
+      setIsError(true);
     }
+  };
 
+  const fetchPageData = async () => {
+    await fetchVideoList();
+    await fetchUsername();
     setIsLoading(false);
   };
 
   useEffect(() => {
-    login();
-  }, []);
-
-  useEffect(() => {
-    fetchVideoList();
+    fetchPageData();
   }, []);
 
   if (failedAuth) {
@@ -75,7 +72,7 @@ function Dashboard() {
       <div className="dashboard__container">
         <h1>My Profile</h1>
         <p className="dashboard__title">
-          Welcome back, {data.username}{" "}
+          Welcome back {user.username},{" "}
           <button onClick={logout}>Log out</button>{" "}
         </p>
         <h2>Your Videos</h2>

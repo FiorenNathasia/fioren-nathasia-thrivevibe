@@ -30,7 +30,6 @@ function Feed() {
   useEffect(() => {
     fetchVideoList();
   }, []);
-  const [lastDirection, setLastDirection] = useState();
 
   const swiped = (direction, videoId) => {
     console.log("removing: " + videoId);
