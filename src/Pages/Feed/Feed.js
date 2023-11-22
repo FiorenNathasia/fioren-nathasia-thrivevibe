@@ -1,13 +1,14 @@
 import TinderCard from "react-tinder-card";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import YouTube from "react-youtube";
 import "./Feed.scss";
 import axios from "axios";
 
 function Feed() {
   const [videoList, setVideoList] = useState(null);
-
   const [isError, setIsError] = useState(false);
+  const lastDirectionRef = useRef();
+
   const fetchVideoList = async () => {
     const token = sessionStorage.getItem("token");
     try {
@@ -33,16 +34,47 @@ function Feed() {
 
   const swiped = (direction, videoId) => {
     console.log("removing: " + videoId);
-    setLastDirection(direction);
+    lastDirectionRef.current = direction;
   };
 
-  const outOfFrame = (videoId) => {
+  const outOfFrame = async (videoId) => {
     console.log(videoId + " left the screen!");
-  };
 
-  const handleVote = (videoId, liked) => {
-    // You can send the vote to your server here
-    console.log(`${liked ? "Liked" : "Disliked"} video: ${videoId}`);
+    const lastDirection = lastDirectionRef.current;
+
+    if (lastDirection === "right") {
+      try {
+        const token = sessionStorage.getItem("token");
+        await axios.put(
+          `http://localhost:2222/api/video/${videoId}/vote`,
+          { voteType: "upvote" },
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        console.log("Upvoting video:", videoId);
+      } catch (error) {
+        console.error("Error while upvoting:", error);
+      }
+    } else if (lastDirection === "left") {
+      try {
+        const token = sessionStorage.getItem("token");
+        await axios.put(
+          `http://localhost:2222/api/video/${videoId}/vote`,
+          { voteType: "downvote" },
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        console.log("Downvoting video:", videoId);
+      } catch (error) {
+        console.error("Error while downvoting:", error);
+      }
+    }
   };
 
   const opts = {
@@ -55,7 +87,11 @@ function Feed() {
   return (
     <div className="feed">
       <div className="swipe__info">
-        {lastDirection ? <p>You Swiped {lastDirection}</p> : <p />}
+        {lastDirectionRef.current ? (
+          <p>You Swiped {lastDirectionRef.current}</p>
+        ) : (
+          <p />
+        )}
       </div>
       <div className="feed__swipecontainer">
         <div className="feed__cardcontainer">
@@ -63,9 +99,9 @@ function Feed() {
             videoList.map((video) => (
               <TinderCard
                 className="swipe"
-                key={video.url}
-                onSwipe={(dir) => swiped(dir, video.url)}
-                onCardLeftScreen={() => outOfFrame(video.url)}
+                key={video.id}
+                onSwipe={(dir) => swiped(dir, video.id)}
+                onCardLeftScreen={() => outOfFrame(video.id)}
               >
                 <div className="card">
                   {" "}
@@ -75,14 +111,7 @@ function Feed() {
                     opts={opts}
                   />
                   <h3>{video.prompt}</h3>
-                  <div className="voting-buttons">
-                    <button onClick={() => handleVote(video.url, true)}>
-                      Like
-                    </button>
-                    <button onClick={() => handleVote(video.url, false)}>
-                      Dislike
-                    </button>
-                  </div>
+                  <div className="voting-buttons"></div>
                 </div>
               </TinderCard>
             ))}
