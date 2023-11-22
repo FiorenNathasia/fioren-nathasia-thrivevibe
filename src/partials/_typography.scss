@@ -1,0 +1,20 @@
+@use "./variables" as *;
+
+@font-face {
+  font-family: "KronaOne";
+  src: url("../assets/fonts/KronaOne-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Questrial";
+  src: url("../assets/fonts/Questrial-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  font-family: "Questrial", monospace, sans-serif;
+  color: $primary-black;
+}
