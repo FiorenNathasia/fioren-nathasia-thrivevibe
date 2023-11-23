@@ -3,6 +3,7 @@ import Dashboard from "./Pages/Dashboard/Dahboard";
 import Login from "./Pages/Login/Login";
 import Feed from "./Pages/Feed/Feed";
 import Header from "./components/Header/Header";
+import VideoPage from "./Pages/VideoPage/VideoPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/feed" element={<Feed />} />
+          <Route path="/video/:id" element={<VideoPage />} />
         </Routes>
       </BrowserRouter>
     </div>

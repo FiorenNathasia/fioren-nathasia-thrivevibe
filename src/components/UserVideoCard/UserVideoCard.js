@@ -1,6 +1,7 @@
 import "./UserVideoCard.scss";
 import React from "react";
 import YouTube from "react-youtube";
+import { Link } from "react-router-dom";
 
 export default function UserVideoCard({ id, url, prompt }) {
   const videoId = url.split("/").pop();
@@ -10,10 +11,15 @@ export default function UserVideoCard({ id, url, prompt }) {
   };
 
   return (
-    <div className="videocard">
-      <YouTube className="videocard__video" videoId={videoId} opts={opts} />
-
-      <p className="videocard__prompt">{prompt}</p>
-    </div>
+    <Link to={`/video/${id}`}>
+      <div className="uservideocard">
+        <YouTube
+          className="uservideocard__video"
+          videoId={videoId}
+          opts={opts}
+        />
+        <p className="uservideocard__prompt">{prompt}</p>
+      </div>
+    </Link>
   );
 }

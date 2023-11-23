@@ -6,7 +6,12 @@ export default function UserVideoList({ videos }) {
     <>
       <div className="videolist">
         {videos.map((video) => (
-          <UserVideoCard key={video.id} url={video.url} prompt={video.prompt} />
+          <UserVideoCard
+            key={video.id}
+            id={video.id}
+            url={video.url}
+            prompt={video.prompt}
+          />
         ))}
       </div>
     </>

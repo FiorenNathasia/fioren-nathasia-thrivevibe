@@ -11,7 +11,6 @@ function Dashboard() {
   const [videoList, setVideoList] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [isError, setIsError] = useState(false);
-  const { videoId } = useParams();
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
