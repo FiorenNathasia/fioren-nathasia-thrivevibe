@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import VideoCard from "../../components/VideoCard/VideoCard";
+import PieChart from "../../components/PieChart/PieChart";
 function VideoPage() {
   const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,7 @@ function VideoPage() {
     <div className="videopage">
       <div className="videopage__container">
         <VideoCard video={video} />
+        <PieChart upvotes={video.upvote} downvotes={video.downvote} />
       </div>
     </div>
   );
