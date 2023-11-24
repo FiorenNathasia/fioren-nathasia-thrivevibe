@@ -1,0 +1,46 @@
+.dropcomment {
+  &__icon {
+    position: absolute;
+    top: 20px;
+    // right: 20px;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover + &__dropdown {
+      display: block;
+    }
+  }
+
+  &__menu {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border-radius: var(border-radius);
+    padding: 10px 20px;
+    width: 200px;
+    display: none;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: 20px;
+      height: 20px;
+      width: 20px;
+      border-radius: var(secondary-bg);
+      transform: rotate(45deg);
+    }
+  }
+
+  &__menu:hover &__dropdown {
+    display: block;
+  }
+}

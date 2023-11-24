@@ -1,0 +1,28 @@
+.swipecard {
+  &__comment {
+    width: 5rem;
+  }
+}
+.card {
+  background-color: #fff;
+  width: 400px;
+  height: 650px;
+  box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.card h3 {
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  color: black;
+}
+
+.videocard__video {
+  width: 100%;
+
+  /* Video width is set to 100% of its container */
+}
+.swipe {
+  position: absolute;
+}

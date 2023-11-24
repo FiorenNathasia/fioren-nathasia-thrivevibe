@@ -1,0 +1,10 @@
+@use "../../partials/variables" as *;
+@use "../../partials/mixins" as *;
+.videopage {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    width: $desktop-breakpoint;
+    justify-content: center;
+  }
+}

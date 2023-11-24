@@ -4,8 +4,8 @@ import YouTube from "react-youtube";
 function VideoCard({ video }) {
   const videoId = video.url.split("/").pop();
   const opts = {
-    width: "75%",
-    height: "200",
+    width: "80%",
+    height: "500",
   };
 
   return (
