@@ -15,7 +15,7 @@ function DropComment() {
         <div className="dropcomment__trigger">
           <div className="dropcomment__menu">
             <button className="dropcomment__icon" onClick={handleButtonClick}>
-              <img src={commenticon} alt="Comment Icon" />
+              <img className="img" src={commenticon} alt="Comment Icon" />
             </button>
             {isMenuOpen && (
               <div className="dropcomment__dropdown">
