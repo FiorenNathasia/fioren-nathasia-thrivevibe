@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import commenticon from "../../assets/icons/chat-bubble.png";
 import "./DropComment.scss"; // Import your SCSS file
+import CommentInput from "../CommentInput/CommentInput";
 
-function DropComment() {
+function DropComment({ video }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleButtonClick = () => {
@@ -19,7 +20,7 @@ function DropComment() {
             </button>
             {isMenuOpen && (
               <div className="dropcomment__dropdown">
-                <p>Dropdown Content</p>
+                <CommentInput videoId={video.id} />
               </div>
             )}
           </div>

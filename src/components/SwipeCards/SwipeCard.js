@@ -113,7 +113,7 @@ function SwipeCard() {
                   opts={opts}
                 />
                 <h3>{video.prompt}</h3>
-                <DropComment />
+                <DropComment video={video} />
               </div>
             </TinderCard>
           ))}
