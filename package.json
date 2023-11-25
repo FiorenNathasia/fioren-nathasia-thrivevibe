@@ -24,6 +24,7 @@
     "react-router-dom": "^6.19.0",
     "react-scripts": "5.0.1",
     "react-spring": "^9.7.3",
+    "react-tinder-card": "^1.6.4",
     "react-with-gesture": "^4.0.8",
     "react-youtube": "^10.1.0",
     "sass": "^1.69.5",
