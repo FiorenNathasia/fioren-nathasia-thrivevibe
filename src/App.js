@@ -4,12 +4,13 @@ import Login from "./Pages/Login/Login";
 import Feed from "./Pages/Feed/Feed";
 import Header from "./components/Header/Header";
 import VideoPage from "./Pages/VideoPage/VideoPage";
+import "./App.scss";
 
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />

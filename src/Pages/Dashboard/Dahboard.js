@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import UserVideoList from "../../components/UserVideoList/UserVideoList";
 import NewVideoModal from "../../components/NewVideoModal/NewVideoModal";
+import Header from "../../components/Header/Header";
 
 function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,6 +68,7 @@ function Dashboard() {
 
   return (
     <main className="dashboard">
+      <Header />
       <div className="dashboard__container">
         <h1>My Profile</h1>
         <p className="dashboard__title">
