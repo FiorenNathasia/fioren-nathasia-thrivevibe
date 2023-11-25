@@ -3,7 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import VideoCard from "../../components/VideoCard/VideoCard";
-import PieChart from "../../components/PieChart/PieChart";
+// import PieChart from "../../components/PieChart/PieChart";
+import Analytics from "../../components/Analytics/Analytics";
 import CommentList from "../../components/CommentList/CommentList";
 
 function VideoPage() {
@@ -58,6 +59,7 @@ function VideoPage() {
     <div className="videopage">
       <div className="videopage__container">
         <VideoCard video={video} />
+        <Analytics upvotes={video.upvote} downvotes={video.downvote} />
         {/* <PieChart upvotes={video.upvote} downvotes={video.downvote} /> */}
         <CommentList comments={comments} />
       </div>

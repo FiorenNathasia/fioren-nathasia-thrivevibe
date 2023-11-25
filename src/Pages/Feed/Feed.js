@@ -1,4 +1,4 @@
-import TinderCard from "react-tinder-card";
+// import TinderCard from "react-tinder-card";
 import { useEffect, useState, useRef } from "react";
 import YouTube from "react-youtube";
 import "./Feed.scss";
