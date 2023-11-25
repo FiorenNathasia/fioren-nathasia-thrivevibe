@@ -47,7 +47,6 @@ function CommentInput({ videoId }) {
           <button type="submit" className="commentinput__submit">
             Submit
           </button>
-          {/* Add a cancel button if needed */}
         </div>
         {error && <div className="commentinput__message">{error}</div>}
       </form>

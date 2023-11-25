@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import commenticon from "../../assets/icons/chat-bubble.png";
-import "./DropComment.scss"; // Import your SCSS file
+import "./DropComment.scss";
 import CommentInput from "../CommentInput/CommentInput";
 
 function DropComment({ video }) {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isDropped, setIsDropped] = useState(false);
 
   const handleButtonClick = () => {
-    setMenuOpen(!isMenuOpen);
+    setIsDropped(!isDropped);
   };
 
   return (
@@ -18,7 +18,7 @@ function DropComment({ video }) {
             <button className="dropcomment__icon" onClick={handleButtonClick}>
               <img className="img" src={commenticon} alt="Comment Icon" />
             </button>
-            {isMenuOpen && (
+            {isDropped && (
               <div className="dropcomment__dropdown">
                 <CommentInput videoId={video.id} />
               </div>

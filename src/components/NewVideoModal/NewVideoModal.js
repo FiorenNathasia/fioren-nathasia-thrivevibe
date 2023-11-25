@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 import "./NewVideoModal.scss";
 
@@ -11,7 +10,6 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
   });
 
   const [isError, setIsError] = useState(false);
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -37,7 +35,10 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
         },
       });
       setIsError(false);
+
       alert("You have successfully uploaded a video!");
+      closeModal();
+      fetchVideoList();
     } catch (error) {
       setIsError(true);
       console.error(error);
@@ -47,11 +48,8 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
       url: "",
       prompt: "",
     });
-
-    closeModal();
-    fetchVideoList();
-    navigate("/");
   };
+
   return (
     <div className="new-video-modal">
       <h2>Add a New Video</h2>
@@ -76,6 +74,7 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
         </label>
         <button type="submit">Submit</button>
       </form>
+      {isError && <p>Could not submit comment</p>}
     </div>
   );
 }

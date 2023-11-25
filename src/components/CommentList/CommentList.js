@@ -8,7 +8,6 @@ function CommentList({ comments }) {
       <ul>
         {comments.map((comment) => (
           <li>
-            {" "}
             <p key={comment.id} className="commentlist__text">
               {comment.comments}
             </p>

@@ -6,9 +6,8 @@ import UserVideoList from "../../components/UserVideoList/UserVideoList";
 import NewVideoModal from "../../components/NewVideoModal/NewVideoModal";
 
 function Dashboard() {
-  const [failedAuth, setFailedAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [videoList, setVideoList] = useState(null);
+  const [videoList, setVideoList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [isError, setIsError] = useState(false);
   const [user, setUser] = useState(null);
@@ -58,8 +57,8 @@ function Dashboard() {
     fetchPageData();
   }, []);
 
-  if (failedAuth) {
-    return <main className="dashboard">You must log in to see this page.</main>;
+  if (isError) {
+    return <main className="dashboard">Cannot display dashboard</main>;
   }
 
   if (isLoading) {
@@ -76,7 +75,7 @@ function Dashboard() {
         </p>
         <h2>Your Videos</h2>
         <div className="dashboard__videolist">
-          {videoList && <UserVideoList videos={videoList} />}
+          <UserVideoList videos={videoList} />
         </div>
 
         <button
