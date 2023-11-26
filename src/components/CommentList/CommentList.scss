@@ -1,6 +1,10 @@
 .commentlist {
   margin-top: 20px;
 
+  &__title {
+    margin-right: 20rem;
+  }
+
   &__text {
     width: fit-content;
     height: 10rem;

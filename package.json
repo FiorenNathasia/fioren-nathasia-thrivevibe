@@ -27,7 +27,6 @@
     "react-spring": "^9.7.3",
     "react-tinder-card": "^1.6.4",
     "react-with-gesture": "^4.0.8",
-    "react-youtube": "^10.1.0",
     "sass": "^1.69.5",
     "web-vitals": "^2.1.4"
   },

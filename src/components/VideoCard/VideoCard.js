@@ -1,22 +1,12 @@
 import "./VideoCard.scss";
-import YouTube from "react-youtube";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 
 function VideoCard({ video }) {
   const videoId = video.url.split("/").pop();
-  const opts = {
-    width: "80%",
-    height: "500",
-  };
 
   return (
-    // <div className="videocard">
-    //   <YouTube className="videocard__video" videoId={videoId} opts={opts} />
-    //   <p className="videocard__prompt">{video.prompt}</p>
-    // </div>
-
     <Card
       sx={{
         width: "30rem",
@@ -32,7 +22,15 @@ function VideoCard({ video }) {
           height: "45rem",
         }}
       >
-        <YouTube className="videocard__video" videoId={videoId} opts={opts} />
+        <iframe
+          width="80%"
+          height="500"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          style={{
+            border: "none",
+            borderRadius: "10px",
+          }}
+        />
         <CardContent>
           <p className="videocard__prompt">{video.prompt}</p>
         </CardContent>

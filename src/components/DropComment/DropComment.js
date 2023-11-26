@@ -20,12 +20,12 @@ function DropComment({ video }) {
             <IconButton
               onClick={handleButtonClick}
               aria-label="comment"
-              color="primary"
               sx={{
                 position: "fixed",
                 top: "96%",
                 left: "93%",
                 transform: "translate(-50%, -50%)",
+                color: "#4654a3",
               }}
             >
               <AddCommentOutlinedIcon />

@@ -1,6 +1,5 @@
 import TinderCard from "react-tinder-card";
 import { useEffect, useState, useRef } from "react";
-import YouTube from "react-youtube";
 import "./SwipeCard.scss";
 import axios from "axios";
 import DropComment from "../DropComment/DropComment";
@@ -79,14 +78,6 @@ function SwipeCard() {
     }
   };
 
-  const opts = {
-    height: "500",
-    width: "100%",
-    playerVars: {
-      autoplay: 1,
-    },
-  };
-
   return (
     <>
       <div className="swipe__info">
@@ -106,11 +97,16 @@ function SwipeCard() {
               onCardLeftScreen={() => outOfFrame(video.id)}
             >
               <div className="card">
-                {" "}
-                <YouTube
-                  className="swipecard__video"
-                  videoId={video.url.split("/").pop()}
-                  opts={opts}
+                <iframe
+                  width="100%"
+                  height="500"
+                  src={`https://www.youtube.com/embed/${video.url
+                    .split("/")
+                    .pop()}`}
+                  style={{
+                    border: "none",
+                    borderRadius: "10px",
+                  }}
                 />
                 <h3>{video.prompt}</h3>
                 <DropComment video={video} />

@@ -55,6 +55,7 @@ function CommentInput({ videoId }) {
               top: "90%",
               left: "80%",
               transform: "translate(-50%, -50%)",
+              color: "#4654a3",
             }}
           >
             <PublishOutlinedIcon />

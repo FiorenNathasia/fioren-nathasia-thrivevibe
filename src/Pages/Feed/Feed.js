@@ -1,7 +1,4 @@
-import { useEffect, useState, useRef } from "react";
-import YouTube from "react-youtube";
 import "./Feed.scss";
-import axios from "axios";
 import SwipeCard from "../../components/SwipeCards/SwipeCard";
 import Header from "../../components/Header/Header";
 

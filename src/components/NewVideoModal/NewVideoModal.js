@@ -92,6 +92,10 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
           variant="contained"
           onClick={handleFormSubmit}
           endIcon={<PublishOutlinedIcon />}
+          sx={{
+            backgroundColor: "#4654a3",
+            "&:hover": { backgroundColor: "#dddbf1" },
+          }}
         >
           Upload{" "}
         </Button>

@@ -9,7 +9,6 @@ import Header from "../../components/Header/Header";
 import Button from "@mui/material/Button";
 import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
 import MeetingRoomOutlinedIcon from "@mui/icons-material/MeetingRoomOutlined";
-import Stack from "@mui/material/Stack";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -42,7 +41,7 @@ function Dashboard() {
 
   const logout = () => {
     sessionStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
   };
 
   const fetchUsername = async () => {
@@ -100,6 +99,7 @@ function Dashboard() {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
+              sx={{ color: "#4654a3" }}
             >
               {" "}
               {user.username}
@@ -126,11 +126,14 @@ function Dashboard() {
               onClick={() => {
                 setOpenModal(true);
               }}
+              sx={{
+                backgroundColor: "#4654a3",
+                "&:hover": { backgroundColor: "#dddbf1" },
+              }}
             >
               ADD NEW{" "}
             </Button>
           </div>
-          <h2>Your Videos</h2>
           <div className="dashboard__videolist">
             <UserVideoList videos={videoList} />
           </div>
