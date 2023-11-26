@@ -3,9 +3,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import VideoCard from "../../components/VideoCard/VideoCard";
-// import PieChart from "../../components/PieChart/PieChart";
 import Analytics from "../../components/Analytics/Analytics";
 import CommentList from "../../components/CommentList/CommentList";
+import Header from "../../components/Header/Header";
 
 function VideoPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -56,14 +56,18 @@ function VideoPage() {
   }
 
   return (
-    <div className="videopage">
-      <div className="videopage__container">
-        <VideoCard video={video} />
-        <Analytics upvotes={video.upvote} downvotes={video.downvote} />
-        {/* <PieChart upvotes={video.upvote} downvotes={video.downvote} /> */}
-        <CommentList comments={comments} />
+    <>
+      <Header />
+      <div className="videopage">
+        <div className="videopage__container">
+          <VideoCard video={video} />
+          <div className="videopage__info">
+            <Analytics upvotes={video.upvote} downvotes={video.downvote} />
+            <CommentList comments={comments} />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

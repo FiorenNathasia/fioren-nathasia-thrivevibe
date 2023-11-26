@@ -1,7 +1,10 @@
 import "./UserVideoCard.scss";
 import React from "react";
+import Card from "@mui/material/Card";
 import YouTube from "react-youtube";
 import { Link } from "react-router-dom";
+import { CardActionArea } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
 
 export default function UserVideoCard({ id, url, prompt }) {
   const videoId = url.split("/").pop();
@@ -12,14 +15,30 @@ export default function UserVideoCard({ id, url, prompt }) {
 
   return (
     <Link to={`/video/${id}`}>
-      <div className="uservideocard">
-        <YouTube
-          className="uservideocard__video"
-          videoId={videoId}
-          opts={opts}
-        />
-        <p className="uservideocard__prompt">{prompt}</p>
-      </div>
+      <Card
+        sx={{
+          width: "20rem",
+          margin: "0.5rem",
+          boxShadow: 3.5,
+          borderRadius: "10px",
+        }}
+      >
+        <CardActionArea
+          sx={{
+            padding: "1rem",
+            height: "20rem",
+          }}
+        >
+          <YouTube
+            className="uservideocard__video"
+            videoId={videoId}
+            opts={opts}
+          />
+          <CardContent>
+            <p className="uservideocard__prompt">{prompt}</p>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     </Link>
   );
 }

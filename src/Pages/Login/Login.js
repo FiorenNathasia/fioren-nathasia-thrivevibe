@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import Input from "../../components/Input/Input";
 import { useNavigate, Link } from "react-router-dom";
+import Logo from "../../assets/Logo/Original on Transparent.png";
 
 function Login() {
   const [error, setError] = useState(null);
@@ -30,17 +31,13 @@ function Login() {
 
   return (
     <main className="login-page">
+      <img className="login__logo" src={Logo} alt="Logo" />
       <form className="login" onSubmit={handleSubmit}>
-        <h1 className="login__title">Log in</h1>
         <Input type="text" name="email" label="Email" />
         <Input type="password" name="password" label="Password" />
         <button className="login__button">Log in</button>
         {error && <div className="login__message">{error}</div>}
       </form>
-
-      <p>
-        Need an account? <Link to="/signup">Log in</Link>
-      </p>
     </main>
   );
 }

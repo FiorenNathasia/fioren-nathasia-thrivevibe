@@ -1,8 +1,8 @@
 .dropcomment {
   &__icon {
     position: relative;
-    top: 80px;
-    left: 5px;
+    top: 60px;
+    right: 160px;
     width: 60px;
     height: 60px;
     overflow: hidden;
@@ -28,14 +28,14 @@
 
   &__dropdown {
     position: absolute;
-    top: 100%;
-    left: 3rem;
+    top: 2rem;
+    right: -9.5rem;
     background-color: #fff;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 10px 20px;
     width: 320px;
-    height: 8.5rem;
+    height: 5.5rem;
     display: none;
 
     &::before {
@@ -50,7 +50,7 @@
     }
   }
 
-  &__menu:hover &__dropdown {
+  &__menu &__dropdown {
     display: block;
   }
 }

@@ -67,36 +67,40 @@ function Dashboard() {
   }
 
   return (
-    <main className="dashboard">
+    <>
       <Header />
-      <div className="dashboard__container">
-        <h1>My Profile</h1>
-        <p className="dashboard__title">
-          Welcome back {user.username},{" "}
-          <button onClick={logout}>Log out</button>{" "}
-        </p>
-        <h2>Your Videos</h2>
-        <div className="dashboard__videolist">
-          <UserVideoList videos={videoList} />
-        </div>
+      <main className="dashboard">
+        <div className="dashboard__container">
+          <h1>My Profile</h1>
+          <p className="dashboard__title">
+            Welcome back {user.username},{" "}
+            <div className="dashboard__buttons">
+              <button onClick={logout}>Log out</button>{" "}
+              <button
+                alt="icon"
+                className="dashboard__voucher"
+                onClick={() => {
+                  setOpenModal(true);
+                }}
+              >
+                Add New Feature
+              </button>
+              {openModal && (
+                <NewVideoModal
+                  closeModal={setOpenModal}
+                  fetchVideoList={fetchVideoList}
+                />
+              )}
+            </div>
+          </p>
 
-        <button
-          alt="icon"
-          className="dashboard__voucher"
-          onClick={() => {
-            setOpenModal(true);
-          }}
-        >
-          Add New Feature
-        </button>
-        {openModal && (
-          <NewVideoModal
-            closeModal={setOpenModal}
-            fetchVideoList={fetchVideoList}
-          />
-        )}
-      </div>
-    </main>
+          <h2>Your Videos</h2>
+          <div className="dashboard__videolist">
+            <UserVideoList videos={videoList} />
+          </div>
+        </div>
+      </main>
+    </>
   );
 }
 

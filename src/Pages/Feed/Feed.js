@@ -3,6 +3,7 @@ import YouTube from "react-youtube";
 import "./Feed.scss";
 import axios from "axios";
 import SwipeCard from "../../components/SwipeCards/SwipeCard";
+import Header from "../../components/Header/Header";
 
 function Feed() {
   const token = sessionStorage.getItem("token");
@@ -12,11 +13,14 @@ function Feed() {
   }
 
   return (
-    <div className="feed">
-      <div className="feed__swipecontainer">
-        <SwipeCard />
+    <>
+      <Header />
+      <div className="feed">
+        <div className="feed__swipecontainer">
+          <SwipeCard />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

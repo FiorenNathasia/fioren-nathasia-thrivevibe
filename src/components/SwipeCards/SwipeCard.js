@@ -108,7 +108,7 @@ function SwipeCard() {
               <div className="card">
                 {" "}
                 <YouTube
-                  className="videocard__video"
+                  className="swipecard__video"
                   videoId={video.url.split("/").pop()}
                   opts={opts}
                 />
