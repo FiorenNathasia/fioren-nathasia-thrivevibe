@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+## 1. Install Dependencies:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Make sure you have Node.js and npm installed on your machine. Navigate to the backend project directory using a terminal, and run:bash
 
-## Available Scripts
+### `npm install`
+
+This will install all the required dependencies specified in the package.json file
+
+## 2. Create .env file:
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install knex mysql2 dotenv`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Create a new MySQL database schema
+- Add a .env file under root directory with following contents. Replace all information a so,
+  PORT=2222
+  DB_HOST=127.0.0.1
+  DB_NAME=ThriveVibe
+  DB_USER=root
+  DB_PASSWORD=rootroot
+  JWT_KEY=<your_password>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 3. Run Migrations:
 
-### `npm test`
+Once your database is set up and the configuration is correct, you can run migrations to create the necessary tables. Use the following command:bash
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npx knex migrate:latest `
 
-### `npm run build`
+This command will execute the latest migrations and create tables in your database.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 4. Seed Data:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If your project includes seed files (files that populate your database with initial data), you can run the seed command:bash
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npx knex seed:run `
 
-### `npm run eject`
+This step is optional and depends on whether your project utilizes seed files.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 5. Start the Server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After migrations are complete, you can start your Express server:bash
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `npm start `
