@@ -4,15 +4,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+  max-width: 25rem;
   width: 100%;
   text-align: center;
 
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   form {
@@ -21,20 +21,20 @@
   }
 
   label {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
 
   input {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    padding: 0.5rem;
+    margin-top: 0.3125rem;
+    margin-bottom: 0.9375rem;
     box-sizing: border-box;
   }
 
   p {
     color: red;
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 
   &__menu {
