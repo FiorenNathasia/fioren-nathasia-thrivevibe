@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import IconButton from "@mui/material/IconButton";
 import "./NewVideoModal.scss";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import PublishOutlinedIcon from "@mui/icons-material/PublishOutlined";
+import Button from "@mui/material/Button";
 
 export default function NewVideoModal({ closeModal, fetchVideoList }) {
   const [formData, setFormData] = useState({
@@ -52,7 +55,20 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
 
   return (
     <div className="new-video-modal">
+      <IconButton
+        onClick={() => closeModal(false)}
+        aria-label="comment"
+        color="primary"
+        sx={{
+          position: "fixed",
+          top: "3%",
+          left: "87%",
+        }}
+      >
+        <CancelOutlinedIcon />
+      </IconButton>
       <h2>Add a New Video</h2>
+
       <form onSubmit={handleFormSubmit}>
         <label>
           Video URL:
@@ -72,7 +88,13 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <Button
+          variant="contained"
+          onClick={handleFormSubmit}
+          endIcon={<PublishOutlinedIcon />}
+        >
+          Upload{" "}
+        </Button>
       </form>
       {isError && <p>Could not submit comment</p>}
     </div>

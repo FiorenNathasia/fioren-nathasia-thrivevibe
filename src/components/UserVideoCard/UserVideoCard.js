@@ -29,10 +29,17 @@ export default function UserVideoCard({ id, url, prompt }) {
             height: "20rem",
           }}
         >
-          <YouTube
+          {/* <YouTube
             className="uservideocard__video"
             videoId={videoId}
             opts={opts}
+          /> */}
+          <iframe
+            width="75%"
+            height="200"
+            src={`https://www.youtube.com/embed/${videoId}`}
+            frameBorder="0"
+            allowfullscreen
           />
           <CardContent>
             <p className="uservideocard__prompt">{prompt}</p>

@@ -11,8 +11,8 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/myprofile" element={<Dashboard />} />
+          <Route path="/" element={<Login />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/video/:id" element={<VideoPage />} />
         </Routes>

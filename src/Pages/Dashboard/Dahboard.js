@@ -1,10 +1,19 @@
 import "./Dashboard.scss";
+import * as React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UserVideoList from "../../components/UserVideoList/UserVideoList";
 import NewVideoModal from "../../components/NewVideoModal/NewVideoModal";
 import Header from "../../components/Header/Header";
+import Button from "@mui/material/Button";
+import LibraryAddOutlinedIcon from "@mui/icons-material/LibraryAddOutlined";
+import MeetingRoomOutlinedIcon from "@mui/icons-material/MeetingRoomOutlined";
+import Stack from "@mui/material/Stack";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemIcon from "@mui/material/ListItemIcon";
 
 function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,6 +22,8 @@ function Dashboard() {
   const [isError, setIsError] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
 
   const fetchVideoList = async () => {
     const token = sessionStorage.getItem("token");
@@ -66,38 +77,69 @@ function Dashboard() {
     return <main className="dashboard">Loading...</main>;
   }
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
       <Header />
       <main className="dashboard">
         <div className="dashboard__container">
-          <h1>My Profile</h1>
-          <p className="dashboard__title">
-            Welcome back {user.username},{" "}
-            <div className="dashboard__buttons">
-              <button onClick={logout}>Log out</button>{" "}
-              <button
-                alt="icon"
-                className="dashboard__voucher"
-                onClick={() => {
-                  setOpenModal(true);
-                }}
-              >
-                Add New Feature
-              </button>
-              {openModal && (
-                <NewVideoModal
-                  closeModal={setOpenModal}
-                  fetchVideoList={fetchVideoList}
-                />
-              )}
-            </div>
-          </p>
+          <div className="dashboard__top">
+            <h1>My Profile</h1>
 
+            <p className="dashboard__welcome">Welcome back, </p>
+            <Button
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              {" "}
+              {user.username}
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem onClick={handleClose}>
+                <ListItemIcon fontSize="small">
+                  <MeetingRoomOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText onClick={logout}> Logout</ListItemText>
+              </MenuItem>
+            </Menu>
+            <Button
+              variant="contained"
+              endIcon={<LibraryAddOutlinedIcon />}
+              onClick={() => {
+                setOpenModal(true);
+              }}
+            >
+              ADD NEW{" "}
+            </Button>
+          </div>
           <h2>Your Videos</h2>
           <div className="dashboard__videolist">
             <UserVideoList videos={videoList} />
           </div>
+          {openModal && (
+            <NewVideoModal
+              closeModal={setOpenModal}
+              fetchVideoList={fetchVideoList}
+            />
+          )}
         </div>
       </main>
     </>

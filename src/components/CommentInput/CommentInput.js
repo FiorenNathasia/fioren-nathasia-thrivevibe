@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./CommentInput.scss";
+import PublishOutlinedIcon from "@mui/icons-material/PublishOutlined";
+import IconButton from "@mui/material/IconButton";
 
 function CommentInput({ videoId }) {
   const [comment, setComment] = useState("");
@@ -44,9 +46,19 @@ function CommentInput({ videoId }) {
           className="commentinput__textarea"
         />
         <div className="commentinput__button--wrapper">
-          <button type="submit" className="commentinput__submit">
-            Submit
-          </button>
+          <IconButton
+            onClick={handleSubmit}
+            aria-label="comment"
+            color="primary"
+            sx={{
+              position: "fixed",
+              top: "90%",
+              left: "80%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <PublishOutlinedIcon />
+          </IconButton>
         </div>
         {error && <div className="commentinput__message">{error}</div>}
       </form>

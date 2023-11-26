@@ -28,14 +28,14 @@
 
   &__dropdown {
     position: absolute;
-    top: 2rem;
-    right: -9.5rem;
+    top: -0.5rem;
+    right: -10rem;
     background-color: #fff;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 10px 20px;
-    width: 320px;
-    height: 5.5rem;
+    width: 345px;
+    height: 7rem;
     display: none;
 
     &::before {

@@ -14,6 +14,15 @@
     max-width: $max-width;
   }
 
+  &__top {
+    display: flex;
+    flex-direction: row;
+    align-items: first baseline;
+  }
+
+  &__welcome {
+    margin-left: 1rem;
+  }
   &__videolist {
     flex-wrap: wrap;
   }
