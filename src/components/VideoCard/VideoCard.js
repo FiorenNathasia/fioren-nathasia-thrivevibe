@@ -10,6 +10,7 @@ function VideoCard({ video }) {
     <Card
       sx={{
         width: "30rem",
+        height: "40rem",
         margin: "0.5rem",
         boxShadow: 4,
         margin: "2rem 0 0 0",
@@ -19,7 +20,7 @@ function VideoCard({ video }) {
       <CardActionArea
         sx={{
           padding: "1rem",
-          height: "45rem",
+          height: "40rem",
         }}
       >
         <iframe

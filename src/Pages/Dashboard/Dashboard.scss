@@ -7,7 +7,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   &__container {
@@ -18,7 +17,7 @@
   &__top {
     display: flex;
     flex-direction: row;
-    align-items: first baseline;
+    align-items: baseline;
   }
 
   &__welcome {

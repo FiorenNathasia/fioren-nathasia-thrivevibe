@@ -5,20 +5,31 @@ function Analytics({ upvotes, downvotes }) {
     return <div>No votes to display</div>;
   }
 
+  const totalVotes = upvotes + downvotes;
+
+  // Calculate percentage values
+  const upvotePercentage = (upvotes / totalVotes) * 100;
+  const downvotePercentage = (downvotes / totalVotes) * 100;
+
+  // Format percentages with two decimal places
+  const formattedUpvotePercentage = upvotePercentage.toFixed(2);
+  const formattedDownvotePercentage = downvotePercentage.toFixed(2);
+
   return (
     <PieChart
+      colors={["#2A42C6", "#F3729D"]}
       series={[
         {
           data: [
-            { id: 0, value: upvotes, label: "Upvotes" },
-            { id: 1, value: downvotes, label: "Downvotes" },
+            { id: 0, value: upvotePercentage, label: "Upvotes %" },
+            { id: 1, value: downvotePercentage, label: "Downvotes %" },
           ],
           highlightScope: { faded: "global", highlighted: "item" },
-          faded: { innerRadius: 30, additionalRadius: -30, color: "gray" },
+          faded: { additionalRadius: -30, color: "gray" },
         },
       ]}
-      width={400}
-      height={200}
+      width={450}
+      height={250}
     />
   );
 }

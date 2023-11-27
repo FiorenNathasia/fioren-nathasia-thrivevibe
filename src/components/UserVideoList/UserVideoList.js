@@ -3,46 +3,51 @@ import UserVideoCard from "../UserVideoCard/UserVideoCard";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import Grid from "@mui/material/Grid";
+
 import Box from "@mui/material/Box";
 
 export default function UserVideoList({ videos }) {
   return (
     <>
       <div className="videolist">
-        <Box
-          sx={{
-            border: "none",
-            height: "500px",
-            width: "100%",
-            overflow: "auto",
-            boxShadow: 3,
-            borderRadius: "10px",
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-          }}
-        >
-          <List
+        <div className="videolist__container">
+          <Grid
+            container
+            spacing={4}
             sx={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "wrap",
+              border: "none",
+              height: "600px",
+              width: "1000", // Set the width to 100%
+              overflow: "auto",
+              boxShadow: 3,
+              borderRadius: "10px",
+              marginTop: "0.5rem",
             }}
           >
             {videos.map((video) => (
-              <ListItem>
-                {" "}
+              <Grid
+                item
+                key={video.id}
+                xs={1}
+                sm={2}
+                md={3}
+                lg={4}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <UserVideoCard
-                  key={video.id}
                   id={video.id}
                   url={video.url}
                   prompt={video.prompt}
-                  sx={{ flexBasis: "calc(25% - 20px)", margin: "10px" }}
+                  sx={{ flexBasis: "100%", margin: "10px" }}
                 />
-              </ListItem>
+              </Grid>
             ))}
-          </List>
-        </Box>
+          </Grid>
+        </div>
       </div>
     </>
   );

@@ -1,6 +1,12 @@
 .videolist {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    margin-left: 2rem;
+  }
 }

@@ -49,7 +49,7 @@ function SwipeCard() {
 
     setTimeout(() => {
       setIsAnimating(false);
-    }, 1000);
+    }, 1500);
   };
 
   const outOfFrame = async (videoId) => {
@@ -94,9 +94,20 @@ function SwipeCard() {
 
   return (
     <>
-      <div className="swipe__info">
+      <div className="feed__info">
         {lastDirectionRef.current ? (
-          <p>You Swiped {lastDirectionRef.current}</p>
+          <p
+            style={{
+              color:
+                swipeDirection === "right"
+                  ? "#4CAF50"
+                  : swipeDirection === "left"
+                  ? "#D32F2F"
+                  : "black",
+            }}
+          >
+            You Swiped {lastDirectionRef.current}!
+          </p>
         ) : (
           <p />
         )}

@@ -27,9 +27,18 @@
 }
 
 .feed {
+  &__info {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 28px;
+  }
   &__wrapper {
     display: flex;
     flex-direction: row;
+  }
+
+  &__cardcontainer {
+    margin-top: -1.8rem;
   }
 
   &__check {
