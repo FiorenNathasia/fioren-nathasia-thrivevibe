@@ -5,15 +5,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   &__container {
     display: flex;
     flex-direction: row;
     max-width: $max-width;
+    margin-left: 22rem;
   }
 
   &__info {
     margin-top: 4rem;
-    margin-left: 5rem;
+    margin-left: 3rem;
+  }
+
+  &__animation {
+    width: 20rem;
+    position: absolute;
+    left: 11%;
+    top: 50%;
   }
 }
