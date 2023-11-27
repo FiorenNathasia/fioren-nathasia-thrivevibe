@@ -13,8 +13,8 @@ export default function UserVideoList({ videos }) {
           sx={{
             border: "none",
             height: "500px",
-            width: "100%", // Use a percentage width to make it responsive
-            overflow: "auto", // Use auto instead of scroll to show scrollbar only when necessary
+            width: "100%",
+            overflow: "auto",
             boxShadow: 3,
             borderRadius: "10px",
             display: "flex",

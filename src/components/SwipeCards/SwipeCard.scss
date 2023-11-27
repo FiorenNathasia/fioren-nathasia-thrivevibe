@@ -25,3 +25,20 @@
 .swipe {
   position: absolute;
 }
+
+.feed {
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__check {
+    position: fixed;
+    left: 60%;
+  }
+
+  &__cross {
+    position: fixed;
+    right: 60%;
+  }
+}
