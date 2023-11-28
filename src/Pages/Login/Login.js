@@ -83,6 +83,7 @@ function Login() {
                 onClick={handleSubmit}
                 sx={{
                   backgroundColor: "#4654a3",
+                  "&:hover": { backgroundColor: "#2B356C" },
                 }}
               >
                 LOGIN{" "}
@@ -94,7 +95,7 @@ function Login() {
       </div>
       <div className="loginpage__right">
         <div className="loginpage__animation">
-          <Lottie animationData={peopleAnimation} height={50} width={50} />
+          <Lottie animationData={peopleAnimation} />
         </div>
       </div>
     </main>

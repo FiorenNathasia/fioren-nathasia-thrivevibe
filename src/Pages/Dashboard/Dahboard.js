@@ -128,7 +128,7 @@ function Dashboard() {
               }}
               sx={{
                 backgroundColor: "#4654a3",
-                "&:hover": { backgroundColor: "#dddbf1" },
+                "&:hover": { backgroundColor: "#2B356C" },
                 position: "absolute",
                 left: "80.5%",
               }}
