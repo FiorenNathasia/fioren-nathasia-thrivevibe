@@ -1,8 +1,5 @@
 import "./UserVideoList.scss";
 import UserVideoCard from "../UserVideoCard/UserVideoCard";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import Grid from "@mui/material/Grid";
 
 import Box from "@mui/material/Box";
@@ -18,7 +15,7 @@ export default function UserVideoList({ videos }) {
             sx={{
               border: "none",
               height: "600px",
-              width: "1000", // Set the width to 100%
+              width: "1000",
               overflow: "auto",
               boxShadow: 3,
               borderRadius: "10px",

@@ -7,13 +7,8 @@ function Analytics({ upvotes, downvotes }) {
 
   const totalVotes = upvotes + downvotes;
 
-  // Calculate percentage values
   const upvotePercentage = (upvotes / totalVotes) * 100;
   const downvotePercentage = (downvotes / totalVotes) * 100;
-
-  // Format percentages with two decimal places
-  const formattedUpvotePercentage = upvotePercentage.toFixed(2);
-  const formattedDownvotePercentage = downvotePercentage.toFixed(2);
 
   return (
     <PieChart

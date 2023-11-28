@@ -16,6 +16,7 @@ export default function UserVideoCard({ id, url, prompt }) {
           margin: "0.5rem",
           boxShadow: 3.5,
           borderRadius: "10px",
+          textDecoration: "none",
         }}
       >
         <CardActionArea
