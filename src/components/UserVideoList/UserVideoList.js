@@ -33,6 +33,7 @@ export default function UserVideoList({ videos }) {
                 sx={{
                   display: "flex",
                   justifyContent: "center",
+                  typography: "none",
                 }}
               >
                 <UserVideoCard

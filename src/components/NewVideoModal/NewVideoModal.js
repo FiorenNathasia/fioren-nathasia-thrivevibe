@@ -55,7 +55,7 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
 
   return (
     <>
-      <div className="modal-background" onClick={() => closeModal(false)}>
+      <div className="modal-background">
         <div className="new-video-modal">
           <IconButton
             onClick={() => closeModal(false)}

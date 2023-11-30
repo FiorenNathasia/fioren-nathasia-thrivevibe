@@ -15,27 +15,22 @@ function VideoCard({ video }) {
         boxShadow: 4,
         margin: "2rem 0 0 0",
         borderRadius: "10px",
+        padding: "1rem",
       }}
     >
-      <CardActionArea
-        sx={{
-          padding: "1rem",
-          height: "40rem",
+      <iframe
+        width="80%"
+        height="500"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        style={{
+          border: "none",
+          borderRadius: "10px",
+          marginTop: "1rem",
         }}
-      >
-        <iframe
-          width="80%"
-          height="500"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          style={{
-            border: "none",
-            borderRadius: "10px",
-          }}
-        />
-        <CardContent>
-          <p className="videocard__prompt">{video.prompt}</p>
-        </CardContent>
-      </CardActionArea>
+      />
+      <CardContent>
+        <p className="videocard__prompt">{video.prompt}</p>
+      </CardContent>
     </Card>
   );
 }

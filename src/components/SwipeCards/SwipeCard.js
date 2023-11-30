@@ -116,33 +116,37 @@ function SwipeCard() {
         <div className="feed__cross">
           {isAnimating === "cross" && <Lottie animationData={crossAnimation} />}
         </div>
+
         <div className="feed__cardcontainer">
           {videoList &&
-            videoList.map((video) => (
+            videoList.map((video, index) => (
               <TinderCard
-                className="swipe"
+                className={`swipe ${index === 0 ? "first-card" : ""} `}
                 key={video.id}
                 onSwipe={(dir) => swiped(dir, video.id)}
                 onCardLeftScreen={() => outOfFrame(video.id)}
               >
-                <div className="card">
-                  <iframe
-                    width="100%"
-                    height="500"
-                    src={`https://www.youtube.com/embed/${video.url
-                      .split("/")
-                      .pop()}`}
-                    style={{
-                      border: "none",
-                      borderRadius: "10px",
-                    }}
-                  />
-                  <h3>{video.prompt}</h3>
-                  <DropComment video={video} />
+                <div className="feed__cardshadow">
+                  <div className="card">
+                    <iframe
+                      width="100%"
+                      height="500"
+                      src={`https://www.youtube.com/embed/${video.url
+                        .split("/")
+                        .pop()}`}
+                      style={{
+                        border: "none",
+                        borderRadius: "10px",
+                      }}
+                    />
+                    <h3>{video.prompt}</h3>
+                    <DropComment video={video} />
+                  </div>
                 </div>
               </TinderCard>
             ))}
         </div>
+
         <div className="feed__check">
           {isAnimating === "check" && <Lottie animationData={checkAnimation} />}
         </div>
