@@ -7,10 +7,16 @@
   background-color: #fff;
   width: 25rem;
   height: 40.625rem;
-  box-shadow: 0px 0px 3.75rem 0px rgba(0, 0, 0, 0.05);
+
   border-radius: 10px;
   padding: 1rem;
-  margin-top: 4rem;
+  margin-top: 6rem;
+  user-select: none;
+  cursor: grab;
+}
+
+.first-card .card {
+  box-shadow: 0px 0px 3.75rem 0px rgba(0, 0, 0, 0.5);
 }
 
 .card h3 {
@@ -24,4 +30,30 @@
 }
 .swipe {
   position: absolute;
+}
+
+.feed {
+  &__info {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 28px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__cardcontainer {
+    margin-top: -1.8rem;
+  }
+
+  &__check {
+    position: fixed;
+    left: 60%;
+  }
+
+  &__cross {
+    position: fixed;
+    right: 60%;
+  }
 }

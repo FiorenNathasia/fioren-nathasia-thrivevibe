@@ -2,10 +2,12 @@ import "./VideoPage.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Lottie from "lottie-react";
 import VideoCard from "../../components/VideoCard/VideoCard";
 import Analytics from "../../components/Analytics/Analytics";
 import CommentList from "../../components/CommentList/CommentList";
 import Header from "../../components/Header/Header";
+import robotAnimation from "../../assets/animations/Robot.json";
 
 function VideoPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -65,6 +67,9 @@ function VideoPage() {
             <Analytics upvotes={video.upvote} downvotes={video.downvote} />
             <CommentList comments={comments} />
           </div>
+        </div>
+        <div className="videopage__animation">
+          <Lottie animationData={robotAnimation} />
         </div>
       </div>
     </>

@@ -4,7 +4,6 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 
 function CommentList({ comments }) {
   const formatTimestamp = (timestamp) => {
@@ -17,7 +16,7 @@ function CommentList({ comments }) {
   };
 
   if (!comments.length) {
-    return <div>No comments to display</div>;
+    return <div className="commentlist__error">No comments to display</div>;
   }
   return (
     <div className="commentlist">
@@ -25,10 +24,13 @@ function CommentList({ comments }) {
       <Box
         sx={{
           border: "none",
+          width: "23.5em",
           height: "300px",
           overflow: "scroll",
+          marginLeft: "4rem",
           boxShadow: 3,
           borderRadius: "10px",
+          backgroundColor: "white",
         }}
       >
         <List>

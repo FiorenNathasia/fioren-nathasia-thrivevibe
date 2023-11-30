@@ -54,53 +54,58 @@ export default function NewVideoModal({ closeModal, fetchVideoList }) {
   };
 
   return (
-    <div className="new-video-modal">
-      <IconButton
-        onClick={() => closeModal(false)}
-        aria-label="comment"
-        color="primary"
-        sx={{
-          position: "fixed",
-          top: "3%",
-          left: "87%",
-        }}
-      >
-        <CancelOutlinedIcon />
-      </IconButton>
-      <h2>Add a New Video</h2>
+    <>
+      <div className="modal-background">
+        <div className="new-video-modal">
+          <IconButton
+            onClick={() => closeModal(false)}
+            aria-label="comment"
+            color="primary"
+            sx={{
+              position: "fixed",
+              top: "3%",
+              left: "87%",
+              color: "#4654a3",
+            }}
+          >
+            <CancelOutlinedIcon />
+          </IconButton>
+          <h2>Add a New Video</h2>
 
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Video URL:
-          <input
-            type="text"
-            name="url"
-            value={formData.url}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Prompt:
-          <input
-            type="text"
-            name="prompt"
-            value={formData.prompt}
-            onChange={handleChange}
-          />
-        </label>
-        <Button
-          variant="contained"
-          onClick={handleFormSubmit}
-          endIcon={<PublishOutlinedIcon />}
-          sx={{
-            backgroundColor: "#4654a3",
-            "&:hover": { backgroundColor: "#dddbf1" },
-          }}
-        >
-          Upload{" "}
-        </Button>
-      </form>
-      {isError && <p>Could not submit comment</p>}
-    </div>
+          <form onSubmit={handleFormSubmit}>
+            <label>
+              Video URL:
+              <input
+                type="text"
+                name="url"
+                value={formData.url}
+                onChange={handleChange}
+              />
+            </label>
+            <label>
+              Prompt:
+              <input
+                type="text"
+                name="prompt"
+                value={formData.prompt}
+                onChange={handleChange}
+              />
+            </label>
+            <Button
+              variant="contained"
+              onClick={handleFormSubmit}
+              endIcon={<PublishOutlinedIcon />}
+              sx={{
+                backgroundColor: "#4654a3",
+                "&:hover": { backgroundColor: "#dddbf1" },
+              }}
+            >
+              Upload{" "}
+            </Button>
+          </form>
+          {isError && <p>Could not submit comment</p>}
+        </div>
+      </div>
+    </>
   );
 }
